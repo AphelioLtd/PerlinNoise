@@ -277,8 +277,7 @@ material = new THREE.ShaderMaterial( {
  
     uniforms: { 
         tExplosion: { // texture in slot 0, loaded with ImageUtils
-            type: "t", 
-            value: 0, 
+            type: "t",  
             texture: THREE.ImageUtils.loadTexture( 'explosion.png' )
         },
         time: { // float initialized to 0
