@@ -250,9 +250,14 @@ void main() {
 		camera,
 		mesh,
 		start = Date.now(),
-		fov = 30;
-
-	window.addEventListener('load', function(){
+		fov = 30,
+		image = document.createElement('img');
+		
+		image.onload = function(e) { … };
+		image.crossOrigin = ''; // no credentials flag. Same as img.crossOrigin='anonymous'
+		image.src = 'http://aphelioltd.github.io/explosion.png';
+		
+		window.addEventListener('load', function(){
 		// Grab the container from the DOM
 		container = document.getElementById( "container" );
 
@@ -278,7 +283,7 @@ material = new THREE.ShaderMaterial( {
     uniforms: { 
         tExplosion: { // texture in slot 0, loaded with ImageUtils
             type: "t",  
-            texture: THREE.ImageUtils.loadTexture( 'explosion.png' )
+            texture: THREE.ImageUtils.loadTexture( image )
         },
         time: { // float initialized to 0
             type: "f", 
